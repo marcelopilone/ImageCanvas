@@ -9,12 +9,13 @@ const ImageCanvas = class {
     this.wCanvas = undefined;
     this.hCanvas = undefined;
     this.canvasFillStyle = 'black';
-    this.fontCanvas = 'bold 28px Arial';
+    this.fontCanvas = 'bold 12p Arial';
     this.content = undefined;
     this.imgLoading = true;
   }
   componentWillLoad() {
     this.canvas = this.__createCanvas();
+    console.info("el canvas es", this.canvas);
     this.el.appendChild(this.canvas);
     const img = new Image();
     img.addEventListener('load', () => {
@@ -34,10 +35,11 @@ const ImageCanvas = class {
   __loadData() {
     const ctx = this.canvas.getContext('2d');
     const data = this.content;
-    ctx.fillStyle = this.canvasFillStyle;
-    ctx.font = this.fontCanvas;
     data.forEach(item => {
       if (item.type === 'text') {
+        const iText = item;
+        ctx.fillStyle = iText.style || this.canvasFillStyle;
+        ctx.font = iText.font || this.fontCanvas;
         ctx.fillText(item.any_string, item.x, item.y);
       }
       if (item.type === 'image') {

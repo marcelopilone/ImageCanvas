@@ -1,4 +1,4 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Ficha</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> <script>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> <script>
       const jsonData = [
           {
             "any_string": "Alf come gato",
@@ -52,13 +52,17 @@
             "any_string": "Alf come gato",
             "type": "text",
             "x": 390,
-            "y": 238
+            "y": 238,
+            "style": 'green',
+            "font": "30px Verdana" 
           },
           {
-            "any_string": "999999999",
+            "any_string": "Alf come gato",
+            "style": 'red',
             "type": "text",
             "x": 390,
-            "y": 315
+            "y": 315,
+            "font": "30px Helvetica"
           },
           {
             "any_string": "8888888888",
@@ -95,7 +99,7 @@
             "height": 200
           }
         ]
-    </script> <image-canvas id="img-canvas" bg-img="https://afigestion.uejn.org.ar/img/ficha_afiliado.png" font-canvas="bold 58px Arial" canvas-fill-style="red" w-canvas="1014" h-canvas="644"></image-canvas> <script>
+    </script> <image-canvas id="img-canvas" bg-img="https://afigestion.uejn.org.ar/img/ficha_afiliado.png" font-canvas="bold 58px Arial" canvas-fill-style="black" w-canvas="1014" h-canvas="644"></image-canvas> <script>
       document.getElementById('img-canvas').content = data;
    </script> <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {

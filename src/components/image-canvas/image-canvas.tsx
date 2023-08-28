@@ -32,7 +32,7 @@ export class ImageCanvas {
    */
 
 
-  @Prop() fontCanvas:string = 'bold 28px Arial'
+  @Prop() fontCanvas:string = 'bold 12p Arial'
   
   /**
    * canvas.content 
@@ -46,6 +46,7 @@ export class ImageCanvas {
 
   componentWillLoad(){
     this.canvas = this.__createCanvas();
+    console.info("el canvas es", this.canvas)
     this.el.appendChild(this.canvas)
     const img = new Image();
     img.addEventListener('load', () =>  {
@@ -68,11 +69,12 @@ export class ImageCanvas {
   __loadData() {
        const ctx = this.canvas.getContext('2d');
        const data = this.content
-       ctx.fillStyle = this.canvasFillStyle;
-       ctx.font = this.fontCanvas;
        data.forEach(item => {
          if( item.type ==='text' ){
-           ctx.fillText(item.any_string, item.x, item.y);
+            const iText = item as ContentDataText
+            ctx.fillStyle = iText.style || this.canvasFillStyle;
+            ctx.font = iText.font || this.fontCanvas;
+            ctx.fillText(item.any_string, item.x, item.y);
          }
          if( item.type ==='image' ){
            const imgData = new Image();

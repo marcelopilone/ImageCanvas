@@ -11,6 +11,9 @@ export class ContentData {
 
 export class ContentDataText extends ContentData {
     "type": OpcionTypes.text
+    "font": string
+    "style": string
+
 }
 
 export class ContentDataImg extends ContentData {
