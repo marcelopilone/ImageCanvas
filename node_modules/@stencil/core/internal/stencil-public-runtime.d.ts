@@ -1131,6 +1131,8 @@ export declare namespace JSXBase {
         summary?: string;
     }
     interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
+        autoComplete?: string;
+        autocomplete?: string;
         autoFocus?: boolean;
         autofocus?: boolean | string;
         cols?: number;

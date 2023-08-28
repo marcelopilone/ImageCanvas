@@ -5,12 +5,31 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
+import { ContentDataImg, ContentDataText } from "./components/type";
+export { ContentDataImg, ContentDataText } from "./components/type";
 export namespace Components {
     interface ImageCanvas {
-        "heightCanvas": number;
-        "imageBackgroundUrl": string;
-        "json_data": any[];
-        "widthCanvas": number;
+        "bgImg": string;
+        /**
+          * Canvas fillStroke
+         */
+        "canvasFillStyle": string;
+        /**
+          * canvas.content
+         */
+        "content": ContentDataText[]|ContentDataImg[];
+        /**
+          * canvas.font  string style
+         */
+        "fontCanvas": string;
+        /**
+          * Height
+         */
+        "hCanvas": number;
+        /**
+          * With
+         */
+        "wCanvas": number;
     }
 }
 declare global {
@@ -26,10 +45,27 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ImageCanvas {
-        "heightCanvas"?: number;
-        "imageBackgroundUrl"?: string;
-        "json_data"?: any[];
-        "widthCanvas"?: number;
+        "bgImg": string;
+        /**
+          * Canvas fillStroke
+         */
+        "canvasFillStyle"?: string;
+        /**
+          * canvas.content
+         */
+        "content"?: ContentDataText[]|ContentDataImg[];
+        /**
+          * canvas.font  string style
+         */
+        "fontCanvas"?: string;
+        /**
+          * Height
+         */
+        "hCanvas"?: number;
+        /**
+          * With
+         */
+        "wCanvas"?: number;
     }
     interface IntrinsicElements {
         "image-canvas": ImageCanvas;

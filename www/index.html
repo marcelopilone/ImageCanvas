@@ -1,4 +1,103 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Ficha</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <image-canvas widthcanvas="dasdasd"></image-canvas> <script>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Ficha</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> <script>
+      const jsonData = [
+          {
+            "any_string": "Alf come gato",
+            "type": "text",
+            "x": 390,
+            "y": 238
+          },
+          {
+            "any_string": "999999999",
+            "type": "text",
+            "x": 390,
+            "y": 315
+          },
+          {
+            "any_string": "8888888888",
+            "type": "text",
+            "x": 390,
+            "y": 389
+          },
+          {
+            "any_string": "77777777777",
+            "type": "text",
+            "x": 390,
+            "y": 465
+          },
+          {
+            "any_string": "55555555555",
+            "type": "text",
+            "x": 390,
+            "y": 540
+          },
+          {
+            "any_string": "https://afigestion.uejn.org.ar/img/foto_carnet/1681746848_2.jpg",
+            "type": "image",
+            "x": 60,
+            "y": 177,
+            "width": 269,
+            "height": 250
+          },
+          {
+            "any_string": "http://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
+            "type": "image",
+            "x": 750,
+            "y": 360,
+            "width": 200,
+            "height": 200
+          }
+      ];
+    </script> </head> <body> <script>
+      const data = [{
+            "any_string": "Alf come gato",
+            "type": "text",
+            "x": 390,
+            "y": 238
+          },
+          {
+            "any_string": "999999999",
+            "type": "text",
+            "x": 390,
+            "y": 315
+          },
+          {
+            "any_string": "8888888888",
+            "type": "text",
+            "x": 390,
+            "y": 389
+          },
+          {
+            "any_string": "77777777777",
+            "type": "text",
+            "x": 390,
+            "y": 465
+          },
+          {
+            "any_string": "55555555555",
+            "type": "text",
+            "x": 390,
+            "y": 540
+          },
+          {
+            "any_string": "https://afigestion.uejn.org.ar/img/foto_carnet/1681746848_2.jpg",
+            "type": "image",
+            "x": 60,
+            "y": 177,
+            "width": 269,
+            "height": 250
+          },
+          {
+            "any_string": "http://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
+            "type": "image",
+            "x": 750,
+            "y": 360,
+            "width": 200,
+            "height": 200
+          }
+        ]
+    </script> <image-canvas id="img-canvas" bg-img="https://afigestion.uejn.org.ar/img/ficha_afiliado.png" font-canvas="bold 58px Arial" canvas-fill-style="red" w-canvas="1014" h-canvas="644"></image-canvas> <script>
+      document.getElementById('img-canvas').content = data;
+   </script> <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   // auto-unregister service worker during dev mode
   navigator.serviceWorker.getRegistration().then(function(registration) {

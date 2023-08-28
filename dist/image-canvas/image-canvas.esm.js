@@ -1,9 +1,9 @@
-import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-d854d76e.js';
-export { s as setNonce } from './index-d854d76e.js';
+import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-00ef20d9.js';
+export { s as setNonce } from './index-00ef20d9.js';
 import { g as globalScripts } from './app-globals-0f993ce5.js';
 
 /*
- Stencil Client Patch Browser v3.2.2 | MIT Licensed | https://stenciljs.com
+ Stencil Client Patch Browser v3.4.2 | MIT Licensed | https://stenciljs.com
  */
 /**
  * Helper method for querying a `meta` tag that contains a nonce value
@@ -86,7 +86,7 @@ const patchBrowser = () => {
         if (BUILD.dynamicImportShim && !win.customElements) {
             // module support, but no custom elements support (Old Edge)
             // @ts-ignore
-            return import(/* webpackChunkName: "polyfills-dom" */ './dom-afcf02e2.js').then(() => opts);
+            return import(/* webpackChunkName: "polyfills-dom" */ './dom-8de30773.js').then(() => opts);
         }
     }
     return promiseResolve(opts);
@@ -157,7 +157,7 @@ const patchCloneNodeFix = (HTMLElementPrototype) => {
 
 patchBrowser().then(options => {
   globalScripts();
-  return bootstrapLazy([["image-canvas",[[0,"image-canvas",{"imageBackgroundUrl":[1,"image-background-url"],"widthCanvas":[2,"width-canvas"],"heightCanvas":[2,"height-canvas"],"json_data":[16]}]]]], options);
+  return bootstrapLazy([["image-canvas",[[0,"image-canvas",{"bgImg":[1,"bg-img"],"wCanvas":[2,"w-canvas"],"hCanvas":[2,"h-canvas"],"canvasFillStyle":[1,"canvas-fill-style"],"fontCanvas":[1,"font-canvas"],"content":[16],"imgLoading":[32]}]]]], options);
 });
 
 //# sourceMappingURL=image-canvas.esm.js.map
