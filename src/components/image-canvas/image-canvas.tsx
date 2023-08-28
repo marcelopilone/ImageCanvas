@@ -34,6 +34,7 @@ export class ImageCanvas {
 
   @Prop() fontCanvas:string = 'bold 12p Arial'
   
+  
   /**
    * canvas.content 
    */
@@ -42,7 +43,7 @@ export class ImageCanvas {
   @State() imgLoading = true;
 
   private canvas: HTMLCanvasElement
-
+  private centerText: string = 'start'
 
   componentWillLoad(){
     this.canvas = this.__createCanvas();
@@ -72,8 +73,9 @@ export class ImageCanvas {
        data.forEach(item => {
          if( item.type ==='text' ){
             const iText = item as ContentDataText
-            ctx.fillStyle = iText.style || this.canvasFillStyle;
-            ctx.font = iText.font || this.fontCanvas;
+            ctx.fillStyle = iText.canvasOptions.fillStyle || this.canvasFillStyle;
+            ctx.font = iText.canvasOptions.font || this.fontCanvas;
+            ctx.textAlign = iText.canvasOptions.textAlign as CanvasTextAlign || this.centerText as CanvasTextAlign;
             ctx.fillText(item.any_string, item.x, item.y);
          }
          if( item.type ==='image' ){

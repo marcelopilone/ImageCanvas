@@ -24,6 +24,7 @@ export declare class ImageCanvas {
   content: ContentDataText[] | ContentDataImg[];
   imgLoading: boolean;
   private canvas;
+  private centerText;
   componentWillLoad(): void;
   __createCanvas(): HTMLCanvasElement;
   __loadData(): void;

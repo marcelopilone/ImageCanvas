@@ -5,6 +5,7 @@ const imageCanvasCss = ":host{display:block}";
 const ImageCanvas = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
+    this.centerText = 'start';
     this.bgImg = undefined;
     this.wCanvas = undefined;
     this.hCanvas = undefined;
@@ -38,8 +39,9 @@ const ImageCanvas = class {
     data.forEach(item => {
       if (item.type === 'text') {
         const iText = item;
-        ctx.fillStyle = iText.style || this.canvasFillStyle;
-        ctx.font = iText.font || this.fontCanvas;
+        ctx.fillStyle = iText.canvasOptions.fillStyle || this.canvasFillStyle;
+        ctx.font = iText.canvasOptions.font || this.fontCanvas;
+        ctx.textAlign = iText.canvasOptions.textAlign || this.centerText;
         ctx.fillText(item.any_string, item.x, item.y);
       }
       if (item.type === 'image') {
