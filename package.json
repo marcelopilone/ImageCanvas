@@ -1,6 +1,6 @@
 {
   "name": "image-canvas",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Marcelo Pilone|Alejandro Vilar",
   "description": "Image canvas when you can edit the content in the same",
   "main": "dist/index.cjs.js",

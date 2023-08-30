@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property             | Attribute           | Description               | Type                                    | Default            |
-| -------------------- | ------------------- | ------------------------- | --------------------------------------- | ------------------ |
-| `bgImg` _(required)_ | `bg-img`            |                           | `string`                                | `undefined`        |
-| `canvasFillStyle`    | `canvas-fill-style` | Canvas fillStroke         | `string`                                | `'black'`          |
-| `content`            | --                  | canvas.content            | `ContentDataImg[] \| ContentDataText[]` | `undefined`        |
-| `fontCanvas`         | `font-canvas`       | canvas.font  string style | `string`                                | `'bold 12p Arial'` |
-| `hCanvas`            | `h-canvas`          | Height                    | `number`                                | `undefined`        |
-| `wCanvas`            | `w-canvas`          | With                      | `number`                                | `undefined`        |
+| Property          | Attribute           | Description               | Type                                    | Default            |
+| ----------------- | ------------------- | ------------------------- | --------------------------------------- | ------------------ |
+| `canvasFillStyle` | `canvas-fill-style` | Canvas fillStroke         | `string`                                | `'black'`          |
+| `content`         | --                  | canvas.content            | `ContentDataImg[] \| ContentDataText[]` | `undefined`        |
+| `fontCanvas`      | `font-canvas`       | canvas.font  string style | `string`                                | `'bold 12p Arial'` |
+| `hCanvas`         | `h-canvas`          | Height                    | `number`                                | `undefined`        |
+| `hImageBg`        | `h-image-bg`        | Height                    | `number`                                | `0`                |
+| `wCanvas`         | `w-canvas`          | With                      | `number`                                | `undefined`        |
+| `wImageBg`        | `w-image-bg`        | With                      | `number`                                | `0`                |
 
 
 ----------------------------------------------

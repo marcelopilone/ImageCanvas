@@ -67,7 +67,7 @@ export class ImageCanvas {
       const ctx = this.canvas.getContext('2d');
       /*var anchoImgBg = 
       var altoImgBg  = */
-      ctx.drawImage(img, 0, 0,this.content[0]['x'],this.content[0]['y']);
+      ctx.drawImage(img, 0, 0,this.content[0]['width'],this.content[0]['height']);
       this.__loadData() 
     })
     img.src = this.content[0]['any_string'];
@@ -83,7 +83,8 @@ export class ImageCanvas {
 
   __loadData() {
        const ctx = this.canvas.getContext('2d');
-       const data = this.content
+       let data = this.content;
+       data.shift()
        data.forEach(item => {
          if( item.type ==='text' ){
             const iText = item as ContentDataText
