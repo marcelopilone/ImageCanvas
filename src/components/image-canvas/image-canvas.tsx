@@ -9,8 +9,6 @@ export class ImageCanvas {
 
   @Element() el: HTMLElement
 
-  @Prop() bgImg!: string 
-  
   /**
    * With
    */
@@ -20,6 +18,16 @@ export class ImageCanvas {
    * Height
    */
   @Prop() hCanvas: number
+
+  /**
+   * With
+   */
+  @Prop() wImageBg: number = 0
+
+  /**
+   * Height
+   */
+  @Prop() hImageBg: number = 0
 
 
   /**
@@ -46,6 +54,10 @@ export class ImageCanvas {
   private centerText: string = 'start'
 
   componentWillLoad(){
+    if( this.content[0]['type'] != 'image'){
+      console.error('el primer valor del array tiene que ser de type image')
+      return
+    }
     this.canvas = this.__createCanvas();
     console.info("el canvas es", this.canvas)
     this.el.appendChild(this.canvas)
@@ -53,10 +65,12 @@ export class ImageCanvas {
     img.addEventListener('load', () =>  {
       this.imgLoading = false
       const ctx = this.canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+      /*var anchoImgBg = 
+      var altoImgBg  = */
+      ctx.drawImage(img, 0, 0,this.content[0]['x'],this.content[0]['y']);
       this.__loadData() 
     })
-    img.src = this.bgImg;
+    img.src = this.content[0]['any_string'];
   }
 
 

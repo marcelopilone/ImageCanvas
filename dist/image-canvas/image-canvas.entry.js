@@ -1,24 +1,25 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-const index = require('./index-9f2ec241.js');
+import { r as registerInstance, g as getElement } from './index-b52ae1b3.js';
 
 const imageCanvasCss = ":host{display:block}";
 
 const ImageCanvas = class {
   constructor(hostRef) {
-    index.registerInstance(this, hostRef);
+    registerInstance(this, hostRef);
     this.centerText = 'start';
-    this.bgImg = undefined;
     this.wCanvas = undefined;
     this.hCanvas = undefined;
+    this.wImageBg = 0;
+    this.hImageBg = 0;
     this.canvasFillStyle = 'black';
     this.fontCanvas = 'bold 12p Arial';
     this.content = undefined;
     this.imgLoading = true;
   }
   componentWillLoad() {
+    if (this.content[0]['type'] != 'image') {
+      console.error('el primer valor del array tiene que ser de type image');
+      return;
+    }
     this.canvas = this.__createCanvas();
     console.info("el canvas es", this.canvas);
     this.el.appendChild(this.canvas);
@@ -26,10 +27,12 @@ const ImageCanvas = class {
     img.addEventListener('load', () => {
       this.imgLoading = false;
       const ctx = this.canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+      /*var anchoImgBg =
+      var altoImgBg  = */
+      ctx.drawImage(img, 0, 0, this.content[0]['x'], this.content[0]['y']);
       this.__loadData();
     });
-    img.src = this.bgImg;
+    img.src = this.content[0]['any_string'];
   }
   __createCanvas() {
     const canvas = document.createElement('canvas');
@@ -57,10 +60,10 @@ const ImageCanvas = class {
       }
     });
   }
-  get el() { return index.getElement(this); }
+  get el() { return getElement(this); }
 };
 ImageCanvas.style = imageCanvasCss;
 
-exports.image_canvas = ImageCanvas;
+export { ImageCanvas as image_canvas };
 
-//# sourceMappingURL=image-canvas.cjs.entry.js.map
+//# sourceMappingURL=image-canvas.entry.js.map

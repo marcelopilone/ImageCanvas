@@ -1,7 +1,6 @@
 import { ContentDataImg, ContentDataText } from '../type';
 export declare class ImageCanvas {
   el: HTMLElement;
-  bgImg: string;
   /**
    * With
    */
@@ -10,6 +9,14 @@ export declare class ImageCanvas {
    * Height
    */
   hCanvas: number;
+  /**
+   * With
+   */
+  wImageBg: number;
+  /**
+   * Height
+   */
+  hImageBg: number;
   /**
    * Canvas fillStroke
    */

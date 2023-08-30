@@ -1,21 +1,25 @@
-import { proxyCustomElement, HTMLElement } from '@stencil/core/internal/client';
+import { r as registerInstance, g as getElement } from './index-b52ae1b3.js';
 
 const imageCanvasCss = ":host{display:block}";
 
-const ImageCanvas$1 = /*@__PURE__*/ proxyCustomElement(class ImageCanvas extends HTMLElement {
-  constructor() {
-    super();
-    this.__registerHost();
+const ImageCanvas = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
     this.centerText = 'start';
-    this.bgImg = undefined;
     this.wCanvas = undefined;
     this.hCanvas = undefined;
+    this.wImageBg = 0;
+    this.hImageBg = 0;
     this.canvasFillStyle = 'black';
     this.fontCanvas = 'bold 12p Arial';
     this.content = undefined;
     this.imgLoading = true;
   }
   componentWillLoad() {
+    if (this.content[0]['type'] != 'image') {
+      console.error('el primer valor del array tiene que ser de type image');
+      return;
+    }
     this.canvas = this.__createCanvas();
     console.info("el canvas es", this.canvas);
     this.el.appendChild(this.canvas);
@@ -23,10 +27,12 @@ const ImageCanvas$1 = /*@__PURE__*/ proxyCustomElement(class ImageCanvas extends
     img.addEventListener('load', () => {
       this.imgLoading = false;
       const ctx = this.canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+      /*var anchoImgBg =
+      var altoImgBg  = */
+      ctx.drawImage(img, 0, 0, this.content[0]['x'], this.content[0]['y']);
       this.__loadData();
     });
-    img.src = this.bgImg;
+    img.src = this.content[0]['any_string'];
   }
   __createCanvas() {
     const canvas = document.createElement('canvas');
@@ -54,34 +60,10 @@ const ImageCanvas$1 = /*@__PURE__*/ proxyCustomElement(class ImageCanvas extends
       }
     });
   }
-  get el() { return this; }
-  static get style() { return imageCanvasCss; }
-}, [0, "image-canvas", {
-    "bgImg": [1, "bg-img"],
-    "wCanvas": [2, "w-canvas"],
-    "hCanvas": [2, "h-canvas"],
-    "canvasFillStyle": [1, "canvas-fill-style"],
-    "fontCanvas": [1, "font-canvas"],
-    "content": [16],
-    "imgLoading": [32]
-  }]);
-function defineCustomElement$1() {
-  if (typeof customElements === "undefined") {
-    return;
-  }
-  const components = ["image-canvas"];
-  components.forEach(tagName => { switch (tagName) {
-    case "image-canvas":
-      if (!customElements.get(tagName)) {
-        customElements.define(tagName, ImageCanvas$1);
-      }
-      break;
-  } });
-}
+  get el() { return getElement(this); }
+};
+ImageCanvas.style = imageCanvasCss;
 
-const ImageCanvas = ImageCanvas$1;
-const defineCustomElement = defineCustomElement$1;
+export { ImageCanvas as image_canvas };
 
-export { ImageCanvas, defineCustomElement };
-
-//# sourceMappingURL=image-canvas.js.map
+//# sourceMappingURL=image-canvas.entry.js.map

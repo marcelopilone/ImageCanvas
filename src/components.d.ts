@@ -9,7 +9,6 @@ import { ContentDataImg, ContentDataText } from "./components/type";
 export { ContentDataImg, ContentDataText } from "./components/type";
 export namespace Components {
     interface ImageCanvas {
-        "bgImg": string;
         /**
           * Canvas fillStroke
          */
@@ -27,9 +26,17 @@ export namespace Components {
          */
         "hCanvas": number;
         /**
+          * Height
+         */
+        "hImageBg": number;
+        /**
           * With
          */
         "wCanvas": number;
+        /**
+          * With
+         */
+        "wImageBg": number;
     }
 }
 declare global {
@@ -45,7 +52,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ImageCanvas {
-        "bgImg": string;
         /**
           * Canvas fillStroke
          */
@@ -63,9 +69,17 @@ declare namespace LocalJSX {
          */
         "hCanvas"?: number;
         /**
+          * Height
+         */
+        "hImageBg"?: number;
+        /**
           * With
          */
         "wCanvas"?: number;
+        /**
+          * With
+         */
+        "wImageBg"?: number;
     }
     interface IntrinsicElements {
         "image-canvas": ImageCanvas;

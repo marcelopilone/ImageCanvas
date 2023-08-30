@@ -1,14 +1,13 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil data-resources-url="/build/" data-stencil-namespace="image-canvas"></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <script>
-      const data = [{
-            "any_string": "Alf come gato",
-            "type": "text",
-            "x": 550,
-            "y": 238,
-            "canvasOptions": {
-              "fillStyle": 'green',
-              "font": "30px Verdana",
-              "textAlign" : 'center'
-            }
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <script>
+      const data = [
+          {
+            "any_string": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
+            "type": "image",
+            "x": 1014,
+            "y": 644,
+            "width": 269,
+            "height": 250,
+            "canvasOptions":{}
           },
           {
             "any_string": "Alf come gato",
@@ -60,6 +59,15 @@
             "canvasOptions":{}
           }
         ]
-    </script> <image-canvas id="img-canvas" bg-img="https://afigestion.uejn.org.ar/img/ficha_afiliado.png" font-canvas="bold 58px Arial" canvas-fill-style="black" w-canvas="1014" h-canvas="644"></image-canvas> <script>
+    </script> <image-canvas id="img-canvas" font-canvas="bold 58px Arial" canvas-fill-style="black" w-canvas="1014" h-canvas="644" w-image-bg="500" h-image-bg="500"></image-canvas> <script>
       document.getElementById('img-canvas').content = data;
-   </script> </body></html>
+   </script> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}
+</script></body></html>

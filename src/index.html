@@ -10,16 +10,15 @@
   <body>
 
     <script>
-      const data = [{
-            "any_string": "Alf come gato",
-            "type": "text",
-            "x": 550,
-            "y": 238,
-            "canvasOptions": {
-              "fillStyle": 'green',
-              "font": "30px Verdana",
-              "textAlign" : 'center'
-            }
+      const data = [
+          {
+            "any_string": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
+            "type": "image",
+            "x": 1014,
+            "y": 644,
+            "width": 269,
+            "height": 250,
+            "canvasOptions":{}
           },
           {
             "any_string": "Alf come gato",
@@ -73,12 +72,13 @@
         ]
     </script>
     <image-canvas 
-      id="img-canvas"
-      bg-img="https://afigestion.uejn.org.ar/img/ficha_afiliado.png"
+      id="img-canvas"      
       font-canvas="bold 58px Arial" 
       canvas-fill-style="black" 
       w-canvas="1014"
-      h-canvas="644"      
+      h-canvas="644" 
+      w-image-bg="500"
+      h-image-bg="500"     
       >
     </image-canvas>
     <script>
