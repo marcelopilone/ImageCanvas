@@ -76,6 +76,8 @@ export class ImageCanvas {
 
   __createCanvas() {
     const canvas = document.createElement('canvas')
+    /*canvas.style.height = '25cm'
+    canvas.style.width = '25cm'*/
     canvas.height = this.hCanvas
     canvas.width = this.wCanvas
     return canvas

@@ -1,12 +1,12 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil data-resources-url="/build/" data-stencil-namespace="image-canvas"></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <script>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <script>
       const data = [
           {
             "any_string": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
             "type": "image",
             "x": 0,
             "y": 0,
-            "width": 1014,
-            "height": 644,
+            "width": 5000,
+            "height": 4000,
             "canvasOptions":{}
           },
           {
@@ -50,8 +50,8 @@
             "canvasOptions":{}
           },
           {
-            "any_string": "http://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
-            "type": "image",
+            "any_string": "https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
+            "type": "qr",
             "x": 750,
             "y": 360,
             "width": 200,
@@ -59,6 +59,15 @@
             "canvasOptions":{}
           }
         ]
-    </script> <image-canvas id="img-canvas" font-canvas="bold 58px Arial" canvas-fill-style="black" w-canvas="1014" h-canvas="644" w-image-bg="500" h-image-bg="500"></image-canvas> <script>
+    </script> <image-canvas id="img-canvas" font-canvas="bold 58px Arial" canvas-fill-style="black" w-canvas="5000" h-canvas="4000" w-image-bg="500" h-image-bg="500"></image-canvas> <script>
       document.getElementById('img-canvas').content = data;
-   </script> </body></html>
+   </script> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}
+</script></body></html>
