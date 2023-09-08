@@ -1,10 +1,11 @@
-import { r as registerInstance, g as getElement } from './index-b52ae1b3.js';
+import { proxyCustomElement, HTMLElement } from '@stencil/core/internal/client';
 
 const imageCanvasCss = ":host{display:block}";
 
-const ImageCanvas = class {
-  constructor(hostRef) {
-    registerInstance(this, hostRef);
+const ImageCanvas$1 = /*@__PURE__*/ proxyCustomElement(class ImageCanvas extends HTMLElement {
+  constructor() {
+    super();
+    this.__registerHost();
     this.centerText = 'start';
     this.wCanvas = undefined;
     this.hCanvas = undefined;
@@ -61,10 +62,35 @@ const ImageCanvas = class {
       }
     });
   }
-  get el() { return getElement(this); }
-};
-ImageCanvas.style = imageCanvasCss;
+  get el() { return this; }
+  static get style() { return imageCanvasCss; }
+}, [0, "image-canvas", {
+    "wCanvas": [2, "w-canvas"],
+    "hCanvas": [2, "h-canvas"],
+    "wImageBg": [2, "w-image-bg"],
+    "hImageBg": [2, "h-image-bg"],
+    "canvasFillStyle": [1, "canvas-fill-style"],
+    "fontCanvas": [1, "font-canvas"],
+    "content": [16],
+    "imgLoading": [32]
+  }]);
+function defineCustomElement$1() {
+  if (typeof customElements === "undefined") {
+    return;
+  }
+  const components = ["image-canvas"];
+  components.forEach(tagName => { switch (tagName) {
+    case "image-canvas":
+      if (!customElements.get(tagName)) {
+        customElements.define(tagName, ImageCanvas$1);
+      }
+      break;
+  } });
+}
 
-export { ImageCanvas as image_canvas };
+const ImageCanvas = ImageCanvas$1;
+const defineCustomElement = defineCustomElement$1;
 
-//# sourceMappingURL=image-canvas.entry.js.map
+export { ImageCanvas, defineCustomElement };
+
+//# sourceMappingURL=image-canvas.js.map
