@@ -9,6 +9,7 @@ export class ImageCanvas {
 
   @Element() el: HTMLElement
 
+  @Prop() idCanvas: string
   /**
    * With
    */
@@ -86,6 +87,7 @@ export class ImageCanvas {
 
   __createCanvas() {
     const canvas = document.createElement('canvas')
+    canvas.id = this.idCanvas
     if( this.wCanvasCss != undefined ){
       canvas.style.width = this.wCanvasCss+"cm"
     }

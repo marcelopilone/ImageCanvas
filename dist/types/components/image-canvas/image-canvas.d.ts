@@ -1,6 +1,7 @@
 import { ContentDataImg, ContentDataText } from '../type';
 export declare class ImageCanvas {
   el: HTMLElement;
+  idCanvas: string;
   /**
    * With
    */

@@ -59,7 +59,7 @@ const patchCloneNodeFix = (HTMLElementPrototype) => {
 
 patchBrowser().then(options => {
   globalScripts();
-  return bootstrapLazy([["image-canvas",[[0,"image-canvas",{"wCanvas":[2,"w-canvas"],"hCanvas":[2,"h-canvas"],"wCanvasCss":[2,"w-canvas-css"],"hCanvasCss":[2,"h-canvas-css"],"wImageBg":[2,"w-image-bg"],"hImageBg":[2,"h-image-bg"],"canvasFillStyle":[1,"canvas-fill-style"],"fontCanvas":[1,"font-canvas"],"content":[16],"imgLoading":[32]}]]]], options);
+  return bootstrapLazy([["image-canvas",[[0,"image-canvas",{"idCanvas":[1,"id-canvas"],"wCanvas":[2,"w-canvas"],"hCanvas":[2,"h-canvas"],"wCanvasCss":[2,"w-canvas-css"],"hCanvasCss":[2,"h-canvas-css"],"wImageBg":[2,"w-image-bg"],"hImageBg":[2,"h-image-bg"],"canvasFillStyle":[1,"canvas-fill-style"],"fontCanvas":[1,"font-canvas"],"content":[16],"imgLoading":[32]}]]]], options);
 });
 
 //# sourceMappingURL=image-canvas.esm.js.map

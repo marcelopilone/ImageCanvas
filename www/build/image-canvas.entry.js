@@ -6,6 +6,7 @@ const ImageCanvas = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.centerText = 'start';
+    this.idCanvas = undefined;
     this.wCanvas = undefined;
     this.hCanvas = undefined;
     this.wCanvasCss = undefined;
@@ -38,6 +39,7 @@ const ImageCanvas = class {
   }
   __createCanvas() {
     const canvas = document.createElement('canvas');
+    canvas.id = this.idCanvas;
     if (this.wCanvasCss != undefined) {
       canvas.style.width = this.wCanvasCss + "cm";
     }

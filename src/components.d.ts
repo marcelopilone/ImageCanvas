@@ -33,6 +33,7 @@ export namespace Components {
           * Height
          */
         "hImageBg": number;
+        "idCanvas": string;
         /**
           * With
          */
@@ -84,6 +85,7 @@ declare namespace LocalJSX {
           * Height
          */
         "hImageBg"?: number;
+        "idCanvas"?: string;
         /**
           * With
          */
