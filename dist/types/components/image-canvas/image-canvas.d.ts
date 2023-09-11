@@ -10,6 +10,14 @@ export declare class ImageCanvas {
    */
   hCanvas: number;
   /**
+   * With css en cm
+   */
+  wCanvasCss: number;
+  /**
+   * Height css en cm
+   */
+  hCanvasCss: number;
+  /**
    * With
    */
   wImageBg: number;

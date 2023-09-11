@@ -8,6 +8,8 @@ const ImageCanvas = class {
     this.centerText = 'start';
     this.wCanvas = undefined;
     this.hCanvas = undefined;
+    this.wCanvasCss = undefined;
+    this.hCanvasCss = undefined;
     this.wImageBg = 0;
     this.hImageBg = 0;
     this.canvasFillStyle = 'black';
@@ -36,8 +38,12 @@ const ImageCanvas = class {
   }
   __createCanvas() {
     const canvas = document.createElement('canvas');
-    /*canvas.style.height = '25cm'
-    canvas.style.width = '25cm'*/
+    if (this.wCanvasCss != undefined) {
+      canvas.style.width = this.wCanvasCss + "cm";
+    }
+    if (this.hCanvasCss != undefined) {
+      canvas.style.height = this.hCanvasCss + 'cm';
+    }
     canvas.height = this.hCanvas;
     canvas.width = this.wCanvas;
     return canvas;

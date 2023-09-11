@@ -26,6 +26,10 @@ export namespace Components {
          */
         "hCanvas": number;
         /**
+          * Height css en cm
+         */
+        "hCanvasCss": number;
+        /**
           * Height
          */
         "hImageBg": number;
@@ -33,6 +37,10 @@ export namespace Components {
           * With
          */
         "wCanvas": number;
+        /**
+          * With css en cm
+         */
+        "wCanvasCss": number;
         /**
           * With
          */
@@ -69,6 +77,10 @@ declare namespace LocalJSX {
          */
         "hCanvas"?: number;
         /**
+          * Height css en cm
+         */
+        "hCanvasCss"?: number;
+        /**
           * Height
          */
         "hImageBg"?: number;
@@ -76,6 +88,10 @@ declare namespace LocalJSX {
           * With
          */
         "wCanvas"?: number;
+        /**
+          * With css en cm
+         */
+        "wCanvasCss"?: number;
         /**
           * With
          */

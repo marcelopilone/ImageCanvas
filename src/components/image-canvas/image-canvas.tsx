@@ -20,6 +20,16 @@ export class ImageCanvas {
   @Prop() hCanvas: number
 
   /**
+   * With css en cm
+   */
+  @Prop() wCanvasCss: number = undefined
+
+  /**
+   * Height css en cm
+   */
+  @Prop() hCanvasCss: number = undefined
+
+  /**
    * With
    */
   @Prop() wImageBg: number = 0
@@ -76,8 +86,12 @@ export class ImageCanvas {
 
   __createCanvas() {
     const canvas = document.createElement('canvas')
-    /*canvas.style.height = '25cm'
-    canvas.style.width = '25cm'*/
+    if( this.wCanvasCss != undefined ){
+      canvas.style.width = this.wCanvasCss+"cm"
+    }
+    if( this.hCanvasCss != undefined ){
+      canvas.style.height = this.hCanvasCss+'cm'
+    }
     canvas.height = this.hCanvas
     canvas.width = this.wCanvas
     return canvas
