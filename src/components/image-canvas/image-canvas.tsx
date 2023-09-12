@@ -1,4 +1,4 @@
-import { Component, Prop,State, Element, h } from '@stencil/core';
+import { Component, Prop,State, Element } from '@stencil/core';
 import { ContentDataImg, ContentDataText } from '../type';
 
 @Component({
@@ -70,7 +70,6 @@ export class ImageCanvas {
       return
     }
     this.canvas = this.__createCanvas();
-    console.info("el canvas es", this.canvas)
     this.el.appendChild(this.canvas)
     const img = new Image();
     img.addEventListener('load', () =>  {
@@ -81,11 +80,13 @@ export class ImageCanvas {
       ctx.drawImage(img, 0, 0,this.content[0]['width'],this.content[0]['height']);
       this.__loadData() 
     })
+    img.crossOrigin = 'anonymous'
     img.src = this.content[0]['any_string'];
+
     
   }
 
-  descargar(){
+  /*descargar(){
    // Espera al próximo ciclo de renderización antes de realizar la descarga
     const canvasPuntual = document.getElementById('sarasa') as HTMLCanvasElement;
     console.info('canvasPuntual', canvasPuntual);
@@ -119,7 +120,7 @@ export class ImageCanvas {
       ia[i] = byteString.charCodeAt(i);
     }
     return new Blob([ab], { type: mimeString });
-  }
+  }*/
 
 
   __createCanvas() {
@@ -158,12 +159,5 @@ export class ImageCanvas {
        });
        
   }
-
-  render(){
-    return[
-      <host><button onClick={()=>this.descargar()}>asdasd</button></host>
-    ]
-  }
-
 
 }
