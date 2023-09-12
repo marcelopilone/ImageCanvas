@@ -1,4 +1,4 @@
-import { Component, Prop,State, Element } from '@stencil/core';
+import { Component, Prop,State, Element, h } from '@stencil/core';
 import { ContentDataImg, ContentDataText } from '../type';
 
 @Component({
@@ -82,6 +82,43 @@ export class ImageCanvas {
       this.__loadData() 
     })
     img.src = this.content[0]['any_string'];
+    
+  }
+
+  descargar(){
+   // Espera al próximo ciclo de renderización antes de realizar la descarga
+    const canvasPuntual = document.getElementById('sarasa') as HTMLCanvasElement;
+    console.info('canvasPuntual', canvasPuntual);
+
+    // Convierte la URL de datos en un Blob
+    const dataUrl = canvasPuntual.toDataURL("image/png");
+    console.info('dataUrl', dataUrl);
+    const blob = this.dataURItoBlob(dataUrl);
+
+    // Crea una URL a partir del Blob
+    const blobUrl = URL.createObjectURL(blob);
+    console.info('blobUrl', blobUrl);
+    // Crea un enlace de descarga automática
+    const downloadLink = document.createElement('a');
+    downloadLink.href = blobUrl;
+    downloadLink.download = 'imagen.png'; // Cambia 'imagen.png' por el nombre que desees para el archivo descargado
+
+    // Simula un clic en el enlace para iniciar la descarga
+    downloadLink.click();
+
+    // Libera la URL del Blob después de la descarga
+    URL.revokeObjectURL(blobUrl);
+  }
+
+  dataURItoBlob(dataURI) {
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: mimeString });
   }
 
 
@@ -119,6 +156,14 @@ export class ImageCanvas {
            };
          }
        });
+       
   }
+
+  render(){
+    return[
+      <host><button onClick={()=>this.descargar()}>asdasd</button></host>
+    ]
+  }
+
 
 }

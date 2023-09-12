@@ -1,4 +1,4 @@
-import { r as registerInstance, g as getElement } from './index-b52ae1b3.js';
+import { r as registerInstance, h, g as getElement } from './index-d48f3bae.js';
 
 const imageCanvasCss = ":host{display:block}";
 
@@ -37,6 +37,36 @@ const ImageCanvas = class {
     });
     img.src = this.content[0]['any_string'];
   }
+  descargar() {
+    // Espera al próximo ciclo de renderización antes de realizar la descarga
+    const canvasPuntual = document.getElementById('sarasa');
+    console.info('canvasPuntual', canvasPuntual);
+    // Convierte la URL de datos en un Blob
+    const dataUrl = canvasPuntual.toDataURL("image/png");
+    console.info('dataUrl', dataUrl);
+    const blob = this.dataURItoBlob(dataUrl);
+    // Crea una URL a partir del Blob
+    const blobUrl = URL.createObjectURL(blob);
+    console.info('blobUrl', blobUrl);
+    // Crea un enlace de descarga automática
+    const downloadLink = document.createElement('a');
+    downloadLink.href = blobUrl;
+    downloadLink.download = 'imagen.png'; // Cambia 'imagen.png' por el nombre que desees para el archivo descargado
+    // Simula un clic en el enlace para iniciar la descarga
+    downloadLink.click();
+    // Libera la URL del Blob después de la descarga
+    URL.revokeObjectURL(blobUrl);
+  }
+  dataURItoBlob(dataURI) {
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: mimeString });
+  }
   __createCanvas() {
     const canvas = document.createElement('canvas');
     canvas.id = this.idCanvas;
@@ -70,6 +100,11 @@ const ImageCanvas = class {
         };
       }
     });
+  }
+  render() {
+    return [
+      h("host", null, h("button", { onClick: () => this.descargar() }, "asdasd"))
+    ];
   }
   get el() { return getElement(this); }
 };

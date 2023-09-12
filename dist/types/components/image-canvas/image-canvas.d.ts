@@ -42,6 +42,9 @@ export declare class ImageCanvas {
   private canvas;
   private centerText;
   componentWillLoad(): void;
+  descargar(): void;
+  dataURItoBlob(dataURI: any): Blob;
   __createCanvas(): HTMLCanvasElement;
   __loadData(): void;
+  render(): any[];
 }
