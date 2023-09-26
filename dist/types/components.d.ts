@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
-import { ContentDataImg, ContentDataText } from "./components/type";
-export { ContentDataImg, ContentDataText } from "./components/type";
+import { Layer } from "./components/type";
+export { Layer } from "./components/type";
 export namespace Components {
     interface ImageCanvas {
         /**
@@ -14,38 +14,17 @@ export namespace Components {
          */
         "canvasFillStyle": string;
         /**
+          * Height en px
+         */
+        "height": string;
+        /**
           * canvas.content
          */
-        "content": ContentDataText[]|ContentDataImg[];
+        "layers": Layer[];
         /**
-          * canvas.font  string style
+          * Width en px
          */
-        "fontCanvas": string;
-        /**
-          * Height
-         */
-        "hCanvas": number;
-        /**
-          * Height css en cm
-         */
-        "hCanvasCss": number;
-        /**
-          * Height
-         */
-        "hImageBg": number;
-        "idCanvas": string;
-        /**
-          * With
-         */
-        "wCanvas": number;
-        /**
-          * With css en cm
-         */
-        "wCanvasCss": number;
-        /**
-          * With
-         */
-        "wImageBg": number;
+        "width": string;
     }
 }
 declare global {
@@ -66,38 +45,17 @@ declare namespace LocalJSX {
          */
         "canvasFillStyle"?: string;
         /**
+          * Height en px
+         */
+        "height"?: string;
+        /**
           * canvas.content
          */
-        "content"?: ContentDataText[]|ContentDataImg[];
+        "layers"?: Layer[];
         /**
-          * canvas.font  string style
+          * Width en px
          */
-        "fontCanvas"?: string;
-        /**
-          * Height
-         */
-        "hCanvas"?: number;
-        /**
-          * Height css en cm
-         */
-        "hCanvasCss"?: number;
-        /**
-          * Height
-         */
-        "hImageBg"?: number;
-        "idCanvas"?: string;
-        /**
-          * With
-         */
-        "wCanvas"?: number;
-        /**
-          * With css en cm
-         */
-        "wCanvasCss"?: number;
-        /**
-          * With
-         */
-        "wImageBg"?: number;
+        "width"?: string;
     }
     interface IntrinsicElements {
         "image-canvas": ImageCanvas;

@@ -1,47 +1,27 @@
-import { ContentDataImg, ContentDataText } from '../type';
+import { Layer } from '../type';
 export declare class ImageCanvas {
   el: HTMLElement;
-  idCanvas: string;
   /**
-   * With
+   * Width en px
    */
-  wCanvas: number;
+  width: string;
   /**
-   * Height
+   * Height en px
    */
-  hCanvas: number;
-  /**
-   * With css en cm
-   */
-  wCanvasCss: number;
-  /**
-   * Height css en cm
-   */
-  hCanvasCss: number;
-  /**
-   * With
-   */
-  wImageBg: number;
-  /**
-   * Height
-   */
-  hImageBg: number;
+  height: string;
   /**
    * Canvas fillStroke
    */
   canvasFillStyle: string;
   /**
-   * canvas.font  string style
-   */
-  fontCanvas: string;
-  /**
    * canvas.content
    */
-  content: ContentDataText[] | ContentDataImg[];
+  layers: Layer[];
+  handlerLayerChange(): void;
   imgLoading: boolean;
   private canvas;
-  private centerText;
   componentWillLoad(): void;
   __createCanvas(): HTMLCanvasElement;
+  __resizeCanvas(): void;
   __loadData(): void;
 }

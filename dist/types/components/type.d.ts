@@ -1,10 +1,6 @@
+import { OpcionTypes } from "../utils/CanvasSetters"
 
-export enum OpcionTypes {
-    text= "text",
-    image = "image",
-    qr = "qr",
-    barcode = "barcode"
-}
+
 export class ContentData {
     "any_string": string
     "x": number
@@ -27,10 +23,14 @@ export type OpsImg = {
     "width": number // valid if type of image is image
     "height": number
 }
+
+export type Layer = ContentDataText|ContentDataImg|ContentDataQR|ContentDataBarcode
+
 export class ContentDataImg extends ContentData {
     "type": OpcionTypes.image 
+    "width": 5000
+    "height": 4000
     "canvasOptions":  OpsImg
-    
 }
 
 

@@ -1,7 +1,7 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <script>
-      const data = [
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <image-canvas id="img-canvas" width="5000px" height="4000px"></image-canvas> <script>
+      const layers = [
           {
-            "any_string": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
+            "data": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
             "type": "image",
             "x": 0,
             "y": 0,
@@ -10,7 +10,7 @@
             "canvasOptions":{}
           },
           {
-            "any_string": "Alf come gato",
+            "data": "Alf come gato",
             "type": "text",
             "x": 390,
             "y": 315,
@@ -20,28 +20,28 @@
             }
           },
           {
-            "any_string": "8888888888",
+            "data": "8888888888",
             "type": "text",
             "x": 390,
             "y": 389,
             "canvasOptions":{}
           },
           {
-            "any_string": "77777777777",
+            "data": "77777777777",
             "type": "text",
             "x": 390,
             "y": 465,
             "canvasOptions":{}
           },
           {
-            "any_string": "55555555555",
+            "data": "55555555555",
             "type": "text",
             "x": 390,
             "y": 540,
             "canvasOptions":{}
           },
           {
-            "any_string": "https://afigestion.uejn.org.ar/img/foto_carnet/1681746848_2.jpg",
+            "data": "https://afigestion.uejn.org.ar/img/foto_carnet/1681746848_2.jpg",
             "type": "image",
             "x": 60,
             "y": 177,
@@ -49,18 +49,17 @@
             "height": 250,
             "canvasOptions":{}
           },
-          {
-            "any_string": "https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
+          /*{
+            "data": "https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
             "type": "qr",
             "x": 750,
             "y": 360,
             "width": 200,
             "height": 200,
             "canvasOptions":{}
-          }
+          }*/
         ]
-    </script> <image-canvas id="img-canvas" id-canvas="sarasa" font-canvas="bold 58px Arial" canvas-fill-style="black" w-canvas="5000" h-canvas="4000" w-canvas-css="25" h-canvas-css="10" w-image-bg="500" h-image-bg="500"></image-canvas> <script>
-      document.getElementById('img-canvas').content = data;
+      document.getElementById('img-canvas').layers = layers;
    </script> <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   // auto-unregister service worker during dev mode

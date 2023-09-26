@@ -1,6 +1,8 @@
-type CanvasSetterOptions = {};
-export declare function setImage(canvas: HTMLCanvasElement, ops: CanvasSetterOptions): CanvasSetterOptions;
-export declare function setText(canvas: HTMLCanvasElement, ops: CanvasSetterOptions): CanvasSetterOptions;
-export declare function setQR(canvas: HTMLCanvasElement, ops: CanvasSetterOptions): CanvasSetterOptions;
-export declare function setBarcode(canvas: HTMLCanvasElement, ops: CanvasSetterOptions): CanvasSetterOptions;
-export {};
+import { Layer } from "../components/type";
+export declare enum OpcionTypes {
+  text = "text",
+  image = "image",
+  qr = "qr",
+  barcode = "barcode"
+}
+export declare function canvasSetter(canvas: CanvasRenderingContext2D, layer: Layer): void;

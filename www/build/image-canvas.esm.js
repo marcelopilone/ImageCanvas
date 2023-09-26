@@ -1,5 +1,5 @@
-import { B as BUILD, c as consoleDevInfo, H, d as doc, N as NAMESPACE, p as promiseResolve, b as bootstrapLazy } from './index-b52ae1b3.js';
-export { s as setNonce } from './index-b52ae1b3.js';
+import { B as BUILD, c as consoleDevInfo, H, d as doc, N as NAMESPACE, p as promiseResolve, b as bootstrapLazy } from './index-43d780d7.js';
+export { s as setNonce } from './index-43d780d7.js';
 import { g as globalScripts } from './app-globals-0f993ce5.js';
 
 /*
@@ -59,7 +59,7 @@ const patchCloneNodeFix = (HTMLElementPrototype) => {
 
 patchBrowser().then(options => {
   globalScripts();
-  return bootstrapLazy([["image-canvas",[[0,"image-canvas",{"idCanvas":[1,"id-canvas"],"wCanvas":[2,"w-canvas"],"hCanvas":[2,"h-canvas"],"wCanvasCss":[2,"w-canvas-css"],"hCanvasCss":[2,"h-canvas-css"],"wImageBg":[2,"w-image-bg"],"hImageBg":[2,"h-image-bg"],"canvasFillStyle":[1,"canvas-fill-style"],"fontCanvas":[1,"font-canvas"],"content":[16],"imgLoading":[32]}]]]], options);
+  return bootstrapLazy([["image-canvas",[[0,"image-canvas",{"width":[1],"height":[1],"canvasFillStyle":[1,"canvas-fill-style"],"layers":[16],"imgLoading":[32]}]]]], options);
 });
 
 //# sourceMappingURL=image-canvas.esm.js.map
