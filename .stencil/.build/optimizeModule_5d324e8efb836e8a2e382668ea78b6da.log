@@ -1,0 +1,1 @@
+import{p as a,b as t}from"./p-52a7c3f9.js";export{s as setNonce}from"./p-52a7c3f9.js";const e=()=>{const s=import.meta.url;const t={};if(s!==""){t.resourcesUrl=new URL(".",s).href}return a(t)};e().then((a=>t([["p-9f54389b",[[0,"image-canvas",{width:[1],height:[1],canvasFillStyle:[1,"canvas-fill-style"],layers:[16],imgLoading:[32]}]]]],a)));

@@ -14,17 +14,17 @@ export namespace Components {
          */
         "canvasFillStyle": string;
         /**
-          * Height en px
+          * Height number
          */
-        "height": string;
+        "height": number;
         /**
           * canvas.content
          */
         "layers": Layer[];
         /**
-          * Width en px
+          * Width number
          */
-        "width": string;
+        "width": number;
     }
 }
 declare global {
@@ -45,17 +45,17 @@ declare namespace LocalJSX {
          */
         "canvasFillStyle"?: string;
         /**
-          * Height en px
+          * Height number
          */
-        "height"?: string;
+        "height": number;
         /**
           * canvas.content
          */
         "layers"?: Layer[];
         /**
-          * Width en px
+          * Width number
          */
-        "width"?: string;
+        "width": number;
     }
     interface IntrinsicElements {
         "image-canvas": ImageCanvas;

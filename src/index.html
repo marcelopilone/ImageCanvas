@@ -10,21 +10,63 @@
   <body>
     <image-canvas 
       id="img-canvas"
-      width="5000px"
-      height="4000px"
+      width="500"
+      height="400"
       >
     </image-canvas>
     <script>
+
       const layers = [
+        {
+          "data": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "width": 500,
+          "height": 400,
+          "canvasOptions":{}
+        },
+        {
+          "data": "ABAJOOOOOOOOOOO",
+          "type": "text",
+          "x": 200,
+          "y": 150,
+          "canvasOptions": {
+            "font": "30px Helvetica",
+            "fillStyle": 'red',
+          }
+        },
           {
-            "data": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
-            "type": "image",
-            "x": 0,
-            "y": 0,
-            "width": 5000,
-            "height": 4000,
-            "canvasOptions":{}
+            "data": "Alf come gato ARRIBA",
+            "type": "text",
+            "x": 100,
+            "y": 200,
+            "canvasOptions": {
+              "font": "30px Helvetica",
+              "fillStyle": 'red',
+            }
           },
+          {
+            "data": "http://html5.litten.com/layers/canvaslayers.html",
+            "type": "qr",
+            "x": 10,
+            "y": 10,
+            "canvasOptions":{
+              "width": 200,
+              "height": 200,
+            }
+          },
+          {
+            "data": "barritas",
+            "type": "barcode",
+            "x": 50,
+            "y": 50,
+            "canvasOptions":{
+              "width": 200,
+              "height": 100,
+            }
+          },
+          /*
           {
             "data": "Alf come gato",
             "type": "text",
@@ -64,7 +106,7 @@
             "width": 269,
             "height": 250,
             "canvasOptions":{}
-          },
+          },*/
           /*{
             "data": "https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
             "type": "qr",
@@ -75,7 +117,8 @@
             "canvasOptions":{}
           }*/
         ]
-      document.getElementById('img-canvas').layers = layers;
+      const ImgCanvas = document.getElementById('img-canvas');
+      ImgCanvas.layers = layers;
    </script>
   </body>
 </html>

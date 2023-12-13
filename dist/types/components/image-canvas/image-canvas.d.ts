@@ -2,13 +2,13 @@ import { Layer } from '../type';
 export declare class ImageCanvas {
   el: HTMLElement;
   /**
-   * Width en px
+   * Width number
    */
-  width: string;
+  width: number;
   /**
-   * Height en px
+   * Height number
    */
-  height: string;
+  height: number;
   /**
    * Canvas fillStroke
    */
@@ -20,8 +20,8 @@ export declare class ImageCanvas {
   handlerLayerChange(): void;
   imgLoading: boolean;
   private canvas;
-  componentWillLoad(): void;
+  componentWillLoad(): Promise<void>;
   __createCanvas(): HTMLCanvasElement;
-  __resizeCanvas(): void;
-  __loadData(): void;
+  __loadData(): Promise<void>;
+  render(): any;
 }

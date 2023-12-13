@@ -1,24 +1,25 @@
-import { Component, Prop,State, Element, Watch } from '@stencil/core';
+import { Component, Prop,State, Element, Watch, h } from '@stencil/core';
 import { Layer } from '../type';
-import { canvasSetter } from '../../utils/CanvasSetters';
+import { canvasSetter } from '../../setters/utils.setter';
 
 @Component({
   tag: 'image-canvas',
   styleUrl: 'image-canvas.css',
+  shadow: false,
 })
 export class ImageCanvas {
 
   @Element() el: HTMLElement
 
   /**
-   * Width en px
+   * Width number
    */
-  @Prop() width: string
+  @Prop() width!: number
 
   /**
-   * Height en px
+   * Height number
    */
-  @Prop() height: string
+  @Prop() height!: number
 
   /**
    * Canvas fillStroke
@@ -31,42 +32,41 @@ export class ImageCanvas {
   @Prop() layers: Layer[] = []
   @Watch('layers')
   handlerLayerChange(){
-    console.info('entrooo')
-
     this.__loadData()
   }
+  
 
   @State() imgLoading = true;
   private canvas: HTMLCanvasElement
 
-  componentWillLoad(){
-    this.el.style.height = this.height
-    this.el.style.width = this.width
+  async componentWillLoad(){
+    this.el.style.height = this.height + "px"
+    this.el.style.width = this.width + "px"
     this.canvas = this.__createCanvas();
-
     this.el.appendChild(this.canvas)
-    this.__loadData()
+    await this.__loadData()
   }
 
   __createCanvas() {
     this.canvas = document.createElement('canvas')
-    this.__resizeCanvas();
+    this.canvas.height = this.height;
+    this.canvas.width = this.width;
     return this.canvas
   }
 
-  __resizeCanvas(){
-    this.canvas.height = this.el.offsetHeight;
-    this.canvas.width = this.el.offsetWidth;
-  }
 
-  __loadData() {
-    console.info('entrooo')
-
+  async __loadData() {
        const ctx = this.canvas.getContext('2d');
        let data = this.layers;
-       data.forEach(l => {
-         canvasSetter(ctx,l)
-       });
+        for (var i = 0; i < data.length; i++) {
+          await canvasSetter(ctx,data[i])
+        }
+  }
+
+  render() {
+    if (this.layers.length == 0) {
+      return <p style={{"color":"red"}}>ERR: Debe ejecutar $("image-cangas").setLayers(Arr con layers[])</p>
+    }
   }
 
 }

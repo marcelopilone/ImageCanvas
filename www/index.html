@@ -1,14 +1,56 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <image-canvas id="img-canvas" width="5000px" height="4000px"></image-canvas> <script>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Image Canvas</title> <script type="module" src="/build/image-canvas.esm.js" data-stencil></script> <script nomodule="" src="/build/image-canvas.js" data-stencil></script> </head> <body> <image-canvas id="img-canvas" width="500" height="400"></image-canvas> <script>
+
       const layers = [
+        {
+          "data": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "width": 500,
+          "height": 400,
+          "canvasOptions":{}
+        },
+        {
+          "data": "ABAJOOOOOOOOOOO",
+          "type": "text",
+          "x": 200,
+          "y": 150,
+          "canvasOptions": {
+            "font": "30px Helvetica",
+            "fillStyle": 'red',
+          }
+        },
           {
-            "data": "https://afigestion.uejn.org.ar/img/ficha_afiliado.png",
-            "type": "image",
-            "x": 0,
-            "y": 0,
-            "width": 5000,
-            "height": 4000,
-            "canvasOptions":{}
+            "data": "Alf come gato ARRIBA",
+            "type": "text",
+            "x": 100,
+            "y": 200,
+            "canvasOptions": {
+              "font": "30px Helvetica",
+              "fillStyle": 'red',
+            }
           },
+          {
+            "data": "http://html5.litten.com/layers/canvaslayers.html",
+            "type": "qr",
+            "x": 10,
+            "y": 10,
+            "canvasOptions":{
+              "width": 200,
+              "height": 200,
+            }
+          },
+          {
+            "data": "barritas",
+            "type": "barcode",
+            "x": 50,
+            "y": 50,
+            "canvasOptions":{
+              "width": 200,
+              "height": 100,
+            }
+          },
+          /*
           {
             "data": "Alf come gato",
             "type": "text",
@@ -48,7 +90,7 @@
             "width": 269,
             "height": 250,
             "canvasOptions":{}
-          },
+          },*/
           /*{
             "data": "https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fafigestion.uejn.org.ar%2Feventos%2Feventos_invitations%2Fview%2F003f6e46-e448-48a7-adc6-48c52ac64a17&chs=250x250&choe=UTF-8&chco=000000&chld=L|0",
             "type": "qr",
@@ -59,7 +101,8 @@
             "canvasOptions":{}
           }*/
         ]
-      document.getElementById('img-canvas').layers = layers;
+      const ImgCanvas = document.getElementById('img-canvas');
+      ImgCanvas.layers = layers;
    </script> <script>
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   // auto-unregister service worker during dev mode

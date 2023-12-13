@@ -1,22 +1,34 @@
-import { OpcionTypes } from "../utils/CanvasSetters"
+import { OpcionTypes } from "../setters"
 
 
-export class ContentData {
-    "any_string": string
+export type ContentData = {
+    "data": string
+    "type": string
     "x": number
     "y": number
 }
 
 export type OpsText = {
+    "type" : OpcionTypes.text
     "font": string
     "fillStyle": string
     "textAlign": string
 }
 
-export class ContentDataText extends ContentData {
-    "type": OpcionTypes.text
+export type DataTextOption = {
+    "data": string
     "canvasOptions": OpsText
 }
+
+export type ContentDataText = ContentData & DataTextOption
+
+
+export type DataNumberOption = {
+    "data": number
+    "canvasOptions": OpsText
+}
+
+export type ContentDataNumber = ContentData & DataNumberOption
 
 
 export type OpsImg = {
@@ -26,12 +38,16 @@ export type OpsImg = {
 
 export type Layer = ContentDataText|ContentDataImg|ContentDataQR|ContentDataBarcode
 
-export class ContentDataImg extends ContentData {
+
+export type DataImgOptions = {
+    "data": string
     "type": OpcionTypes.image 
-    "width": 5000
-    "height": 4000
+    "width": number
+    "height": number
     "canvasOptions":  OpsImg
 }
+
+export type ContentDataImg = ContentData & DataImgOptions
 
 
 export enum QRLevels {
@@ -43,23 +59,26 @@ export enum QRLevels {
 
 export type OpsQR = {
     "level": QRLevels
-    "text": string,
     "width": number,
     "height": number,
 }
-export class ContentDataQR extends ContentData {
+
+export type DataQROptions = {
     "type": OpcionTypes.qr 
     "canvasOptions":  OpsQR
-    
 }
+
+export type ContentDataQR = ContentData & DataQROptions
 
 
 export type Opsbarcode = {
     "width": number // valid if type of image is image
     "height": number
 }
-export class ContentDataBarcode extends ContentData {
+
+export type DataBarcodeOptions = {
     "type": OpcionTypes.barcode
     "canvasOptions":  Opsbarcode
-    
 }
+
+export type ContentDataBarcode = ContentData & DataBarcodeOptions

@@ -27,7 +27,9 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "4.1.0"
+    "@stencil/core": "4.1.0",
+    "jsbarcode": "^3.11.6",
+    "qrcode": "^1.5.3"
   },
   "devDependencies": {
     "@types/jest": "29.5.4",
