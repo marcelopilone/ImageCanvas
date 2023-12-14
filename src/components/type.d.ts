@@ -58,9 +58,18 @@ export enum QRLevels {
 }
 
 export type OpsQR = {
-    "level": QRLevels
     "width": number,
     "height": number,
+    "opts": {
+        "errorCorrectionLevel": QRLevels,
+        "type": string,
+        "quality": number,
+        "margin": number,
+        "color": {
+            "dark":string,
+            "light":string
+        }
+    }
 }
 
 export type DataQROptions = {
@@ -74,6 +83,10 @@ export type ContentDataQR = ContentData & DataQROptions
 export type Opsbarcode = {
     "width": number // valid if type of image is image
     "height": number
+    "height_barcode": number|null //default 100
+    "width_barcode": number|null //default 2
+    "background": string
+    "lineColor": string
 }
 
 export type DataBarcodeOptions = {

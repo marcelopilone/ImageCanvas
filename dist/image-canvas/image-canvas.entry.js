@@ -3589,6 +3589,10 @@ class SetBarcode extends AbstractSetter {
       var canvas = document.createElement("canvas");
       JsBarcode(canvas, this.layer.data, {
         format: "CODE39",
+        width: this.layer.canvasOptions.width_barcode,
+        height: this.layer.canvasOptions.height_barcode,
+        background: this.layer.canvasOptions.background,
+        lineColor: this.layer.canvasOptions.lineColor
       });
       let base64Barcode = canvas.toDataURL("image/png");
       const imgData = new Image();
@@ -6505,7 +6509,7 @@ var browser = {
 class SetQR extends AbstractSetter {
   async run() {
     return new Promise((resolve, rejects) => {
-      browser.toDataURL(this.layer.data, { errorCorrectionLevel: 'L' })
+      browser.toDataURL(this.layer.data, this.layer.canvasOptions.opts)
         .then(urlImage => {
         const imgData = new Image();
         imgData.src = urlImage;

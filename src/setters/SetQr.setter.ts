@@ -7,7 +7,7 @@ export class SetQR extends AbstractSetter{
     layer: ContentDataQR
     async run(): Promise<void> {
         return new Promise((resolve, rejects) => {
-            QRCode.toDataURL(this.layer.data, { errorCorrectionLevel: 'L' })
+            QRCode.toDataURL(this.layer.data, this.layer.canvasOptions.opts)
                 .then(urlImage => {
                     const imgData = new Image();
                     imgData.src = urlImage;
