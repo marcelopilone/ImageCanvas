@@ -3585,19 +3585,24 @@ const JsBarcode = /*@__PURE__*/getDefaultExportFromCjs(JsBarcode_1);
 
 class SetBarcode extends AbstractSetter {
   async run() {
-    //JsBarcode(this.canvasContent, "Hello");
-    var number = '12345678';
-    JsBarcode("#barcode", number, {
-      text: this.layer.data,
-      width: 2,
-      height: 50,
-      fontSize: 15,
+    return new Promise((resolve, rejects) => {
+      var canvas = document.createElement("canvas");
+      JsBarcode(canvas, this.layer.data, {
+        format: "CODE39",
+      });
+      let base64Barcode = canvas.toDataURL("image/png");
+      const imgData = new Image();
+      imgData.src = base64Barcode;
+      try {
+        imgData.onload = () => {
+          this.canvasContent.drawImage(imgData, this.layer.x, this.layer.y, this.layer.canvasOptions.width, this.layer.canvasOptions.height);
+          resolve();
+        };
+      }
+      catch (error) {
+        rejects(error);
+      }
     });
-    var svg = document.getElementById('barcode');
-    console.info('svg', svg);
-    var xml = new XMLSerializer().serializeToString(svg);
-    var base64 = 'data:image/svg+xml;base64,' + btoa(xml);
-    console.log('base64', base64);
   }
 }
 
