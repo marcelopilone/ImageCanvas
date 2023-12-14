@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@stencil/core": "4.1.0",
-    "barcode": "^0.1.0",
     "jsbarcode": "^3.11.6",
     "qrcode": "^1.5.3"
   },
