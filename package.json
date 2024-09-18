@@ -1,6 +1,6 @@
 {
   "name": "image-canvas",
-  "version": "0.1",
+  "version": "0.0.12",
   "author": "Marcelo Pilone|Alejandro Vilar",
   "description": "Image canvas when you can edit the content in the same",
   "main": "dist/index.cjs.js",
@@ -24,7 +24,8 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "publish": "stencil build --docs && npm publish"
   },
   "dependencies": {
     "@stencil/core": "4.1.0",

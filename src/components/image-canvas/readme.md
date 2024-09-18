@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property          | Attribute           | Description       | Type      | Default     |
-| ----------------- | ------------------- | ----------------- | --------- | ----------- |
-| `canvasFillStyle` | `canvas-fill-style` | Canvas fillStroke | `string`  | `'black'`   |
-| `height`          | `height`            | Height en px      | `string`  | `undefined` |
-| `layers`          | --                  | canvas.content    | `Layer[]` | `[]`        |
-| `width`           | `width`             | Width en px       | `string`  | `undefined` |
+| Property              | Attribute           | Description       | Type      | Default     |
+| --------------------- | ------------------- | ----------------- | --------- | ----------- |
+| `canvasFillStyle`     | `canvas-fill-style` | Canvas fillStroke | `string`  | `'black'`   |
+| `height` _(required)_ | `height`            | Height number     | `number`  | `undefined` |
+| `layers`              | --                  | canvas.content    | `Layer[]` | `[]`        |
+| `width` _(required)_  | `width`             | Width number      | `number`  | `undefined` |
 
 
 ----------------------------------------------
+
 
 *Built with [StencilJS](https://stenciljs.com/)*
