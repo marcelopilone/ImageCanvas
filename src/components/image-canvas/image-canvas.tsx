@@ -40,8 +40,6 @@ export class ImageCanvas {
   private canvas: HTMLCanvasElement
 
   async componentWillLoad(){
-    this.el.style.height = this.height + "px"
-    this.el.style.width = this.width + "px"
     this.canvas = this.__createCanvas();
     this.el.appendChild(this.canvas)
     await this.__loadData()
@@ -51,6 +49,8 @@ export class ImageCanvas {
     this.canvas = document.createElement('canvas')
     this.canvas.height = this.height;
     this.canvas.width = this.width;
+    this.canvas.style.width = "100%";
+    this.canvas.style.height = "100%";
     return this.canvas
   }
 
@@ -65,7 +65,7 @@ export class ImageCanvas {
 
   render() {
     if (this.layers.length == 0) {
-      return <p style={{"color":"red"}}>ERR: Debe ejecutar $("image-cangas").setLayers(Arr con layers[])</p>
+      return <p style={{"color":"red"}}>ERR: Debe ejecutar $("image-cangas").layers = layers[] para poder mostrar algo)</p>
     }
   }
 

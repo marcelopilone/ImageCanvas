@@ -1,0 +1,12 @@
+{
+  "entries": [
+    "components/image-canvas/image-canvas.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "4.1.0",
+    "typescriptVersion": "5.0.4"
+  },
+  "collections": [],
+  "bundles": []
+}
