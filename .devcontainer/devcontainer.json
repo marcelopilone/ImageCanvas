@@ -1,0 +1,15 @@
+{
+    "name": "ImageCanvas",
+    "image": "node:22",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": "latest"
+    },
+    "mounts": [
+        "source=/srv/ImageCanvas,target=/workspace,type=bind,consistency=cached"
+    ],
+    "forwardPorts": [
+        // List of ports to forward to the local machine
+        3000
+    ],
+    "postCreateCommand": "npm install"
+}

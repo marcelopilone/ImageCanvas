@@ -4892,66 +4892,13 @@ AlphanumericData.prototype.write = function write (bitBuffer) {
 
 var alphanumericData = AlphanumericData;
 
-var encodeUtf8 = function encodeUtf8 (input) {
-  var result = [];
-  var size = input.length;
-
-  for (var index = 0; index < size; index++) {
-    var point = input.charCodeAt(index);
-
-    if (point >= 0xD800 && point <= 0xDBFF && size > index + 1) {
-      var second = input.charCodeAt(index + 1);
-
-      if (second >= 0xDC00 && second <= 0xDFFF) {
-        // https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
-        point = (point - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
-        index += 1;
-      }
-    }
-
-    // US-ASCII
-    if (point < 0x80) {
-      result.push(point);
-      continue
-    }
-
-    // 2-byte UTF-8
-    if (point < 0x800) {
-      result.push((point >> 6) | 192);
-      result.push((point & 63) | 128);
-      continue
-    }
-
-    // 3-byte UTF-8
-    if (point < 0xD800 || (point >= 0xE000 && point < 0x10000)) {
-      result.push((point >> 12) | 224);
-      result.push(((point >> 6) & 63) | 128);
-      result.push((point & 63) | 128);
-      continue
-    }
-
-    // 4-byte UTF-8
-    if (point >= 0x10000 && point <= 0x10FFFF) {
-      result.push((point >> 18) | 240);
-      result.push(((point >> 12) & 63) | 128);
-      result.push(((point >> 6) & 63) | 128);
-      result.push((point & 63) | 128);
-      continue
-    }
-
-    // Invalid character
-    result.push(0xEF, 0xBF, 0xBD);
-  }
-
-  return new Uint8Array(result).buffer
-};
-
 function ByteData (data) {
   this.mode = mode.BYTE;
   if (typeof (data) === 'string') {
-    data = encodeUtf8(data);
+    this.data = new TextEncoder().encode(data);
+  } else {
+    this.data = new Uint8Array(data);
   }
-  this.data = new Uint8Array(data);
 }
 
 ByteData.getBitsLength = function getBitsLength (length) {
@@ -6357,7 +6304,31 @@ class SetText extends AbstractSetter {
     this.canvasContent.fillStyle = this.layer.canvasOptions.fillStyle;
     this.canvasContent.font = this.layer.canvasOptions.font;
     this.canvasContent.textAlign = this.layer.canvasOptions.textAlign;
-    this.canvasContent.fillText(this.layer.data, this.layer.x, this.layer.y);
+    if ('maxWidth' in this.layer.canvasOptions) {
+      let words = this.layer.data.split(' ');
+      let line = '';
+      let startY = this.layer.y;
+      for (let i = 0; i < words.length; i++) {
+        let testLine = line + words[i] + ' ';
+        console.log('el test line es ', testLine);
+        let metrics = this.canvasContent.measureText(testLine);
+        console.log('las metricas son ', metrics);
+        let testWidth = metrics.width;
+        console.log('prueba de ancho ', testWidth);
+        if (testWidth > Number(this.layer.canvasOptions.maxWidth) && i > 0) {
+          this.canvasContent.fillText(line, this.layer.x, startY);
+          line = words[i] + ' ';
+          startY = startY + 20;
+        }
+        else {
+          line = testLine;
+        }
+      }
+      this.canvasContent.fillText(line, this.layer.x, startY);
+    }
+    else {
+      this.canvasContent.fillText(this.layer.data, this.layer.x, this.layer.y);
+    }
   }
 }
 
