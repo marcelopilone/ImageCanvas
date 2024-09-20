@@ -6308,17 +6308,18 @@ class SetText extends AbstractSetter {
       let words = this.layer.data.split(' ');
       let line = '';
       let startY = this.layer.y;
+      if (!('lineSpace' in this.layer.canvasOptions)) {
+        throw new Error("Es necesario un lineSpace cuando se utiliza maxWidth");
+      }
+      let space = this.layer.canvasOptions.lineSpace;
       for (let i = 0; i < words.length; i++) {
         let testLine = line + words[i] + ' ';
-        console.log('el test line es ', testLine);
         let metrics = this.canvasContent.measureText(testLine);
-        console.log('las metricas son ', metrics);
         let testWidth = metrics.width;
-        console.log('prueba de ancho ', testWidth);
-        if (testWidth > Number(this.layer.canvasOptions.maxWidth) && i > 0) {
+        if (testWidth > this.layer.canvasOptions.maxWidth && i > 0) {
           this.canvasContent.fillText(line, this.layer.x, startY);
           line = words[i] + ' ';
-          startY = startY + 20;
+          startY = startY + space;
         }
         else {
           line = testLine;

@@ -13,6 +13,8 @@ export type OpsText = {
     "font": string
     "fillStyle": string
     "textAlign": string
+    "maxWidth"?: number
+    "lineSpace"?: number
 }
 
 export type DataTextOption = {
