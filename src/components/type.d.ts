@@ -89,6 +89,7 @@ export type Opsbarcode = {
     "width_barcode": number|null //default 2
     "background": string
     "lineColor": string
+    "displayValue"?: boolean
 }
 
 export type DataBarcodeOptions = {

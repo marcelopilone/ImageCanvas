@@ -12,7 +12,8 @@ export class SetBarcode extends AbstractSetter{
                     width: this.layer.canvasOptions.width_barcode,
                     height: this.layer.canvasOptions.height_barcode,
                     background: this.layer.canvasOptions.background,
-                    lineColor: this.layer.canvasOptions.lineColor
+                    lineColor: this.layer.canvasOptions.lineColor,
+                    displayValue: ("displayValue" in this.layer.canvasOptions) ? this.layer.canvasOptions.displayValue : true,
                 });
                 let base64Barcode = canvas.toDataURL("image/png");
                 const imgData = new Image();
