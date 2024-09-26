@@ -6309,6 +6309,14 @@ class SetText extends AbstractSetter {
     this.canvasContent.fillStyle = this.layer.canvasOptions.fillStyle;
     this.canvasContent.font = this.layer.canvasOptions.font;
     this.canvasContent.textAlign = this.layer.canvasOptions.textAlign;
+    if ('rotate' in this.layer.canvasOptions) {
+      const angulo = this.layer.canvasOptions.rotate * (Math.PI / 180);
+      const originalX = this.layer.x;
+      const originalY = this.layer.y;
+      this.layer.x = originalX * Math.cos(angulo) - originalY * Math.sin(angulo);
+      this.layer.y = originalX * Math.sin(angulo) + originalY * Math.cos(angulo);
+      this.canvasContent.rotate(angulo);
+    }
     if ('maxWidth' in this.layer.canvasOptions) {
       let words = this.layer.data.split(' ');
       let line = '';

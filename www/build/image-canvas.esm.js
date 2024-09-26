@@ -1,2 +1,2 @@
-import{p as a,b as e}from"./p-793090eb.js";export{s as setNonce}from"./p-793090eb.js";const t=()=>{const s=import.meta.url;const e={};if(s!==""){e.resourcesUrl=new URL(".",s).href}return a(e)};t().then((a=>e([["p-a46d0a8b",[[0,"image-canvas",{width:[2],height:[2],canvasFillStyle:[1,"canvas-fill-style"],layers:[16],imgLoading:[32]}]]]],a)));
+import{p as a,b as e}from"./p-793090eb.js";export{s as setNonce}from"./p-793090eb.js";const t=()=>{const s=import.meta.url;const e={};if(s!==""){e.resourcesUrl=new URL(".",s).href}return a(e)};t().then((s=>e([["p-d9730910",[[0,"image-canvas",{width:[2],height:[2],canvasFillStyle:[1,"canvas-fill-style"],layers:[16],imgLoading:[32]}]]]],s)));
 //# sourceMappingURL=image-canvas.esm.js.map

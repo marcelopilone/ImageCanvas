@@ -15,6 +15,7 @@ export type OpsText = {
     "textAlign": string
     "maxWidth"?: number
     "lineSpace"?: number
+    "rotate"?: number
 }
 
 export type DataTextOption = {
